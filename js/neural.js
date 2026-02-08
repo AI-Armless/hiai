@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════
-   Neural Network Canvas — Hi, AI
+   Neural Network Canvas — Hi, AI!
    White neural structure + amber synaptic activity.
    ════════════════════════════════════════════════════════ */
 
