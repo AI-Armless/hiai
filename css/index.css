@@ -101,15 +101,15 @@
   font-weight: 800;
   letter-spacing: -.05em;
   margin-bottom: 20px;
-  line-height: 1.05;
+  line-height: 1.2;
 }
 
 .hero__sub {
-  font-size: clamp(15px, 1.5vw, 17px);
-  color: rgba(255, 255, 255, .4);
-  max-width: 480px;
+  font-size: clamp(20px, 1.5vw, 17px);
+  color: rgba(255, 255, 255, .5);
+  max-width: 680px;
   margin: 0 auto 32px;
-  line-height: 1.7;
+  line-height: 1.45;
 }
 
 .hero__btns {
