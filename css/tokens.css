@@ -1,0 +1,49 @@
+/* ════════════════════════════════════════════════════════
+   Design Tokens — Hi, AI
+   ════════════════════════════════════════════════════════ */
+
+:root {
+  /* Backgrounds */
+  --bg: #fafaf8;
+  --bg-warm: #f4f2ed;
+  --bg-card: #ffffff;
+  --bg-dark: #09090b;
+  --grad-dark: linear-gradient(145deg, #0a0a0b 0%, #111113 40%, #0a0a0b 100%);
+
+  /* Borders */
+  --border: rgba(0, 0, 0, .08);
+  --border-hover: rgba(0, 0, 0, .15);
+
+  /* Text */
+  --text: #111;
+  --text-2: #555;
+  --text-3: #999;
+
+  /* Brand — Amber */
+  --amber: #f59e0b;
+  --amber-deep: #d97706;
+  --amber-glow: rgba(245, 158, 11, .15);
+  --amber-soft: #fef3c7;
+
+  /* Accents */
+  --violet: #8b5cf6;
+  --violet-soft: #ede9fe;
+  --teal: #14b8a6;
+  --teal-soft: #ccfbf1;
+  --coral: #f43f5e;
+  --coral-soft: #ffe4e6;
+  --blue: #3b82f6;
+  --blue-soft: #dbeafe;
+
+  /* Layout */
+  --maxw: 1240px;
+  --px: clamp(20px, 4vw, 48px);
+
+  /* Radii */
+  --r-lg: 24px;
+  --r-md: 16px;
+  --r-sm: 10px;
+
+  /* Motion */
+  --ease: cubic-bezier(.23, 1, .32, 1);
+}
