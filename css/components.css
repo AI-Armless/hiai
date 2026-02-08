@@ -520,7 +520,7 @@
 }
 .pcard--bot:hover {
   border-color: rgba(245, 158, 11, .18);
-  box-shadow: 0 20px 48px rgba(245, 158, 11, .15);
+  box-shadow: 0 20px 48px rgba(245, 158, 11, .06);
 }
 .pcard--bot .pcard__role { color: var(--amber-deep) }
 
@@ -530,7 +530,7 @@
 }
 .pcard--ch:hover {
   border-color: rgba(99, 102, 241, .18);
-  box-shadow: 0 20px 48px rgba(99, 102, 241, .2);
+  box-shadow: 0 20px 48px rgba(99, 102, 241, .06);
 }
 .pcard--ch .pcard__role { color: #6366f1 }
 .pcard--ch .pcard__metrics { border-top-color: rgba(99, 102, 241, .15) }
