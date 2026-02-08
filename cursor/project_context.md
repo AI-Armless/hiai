@@ -1,17 +1,17 @@
-# Project Context — Hi AI Website
+# Project Context — Hi, AI! Website
 
 ## Overview
 
-This project is a marketing website for **Hi AI**, a large Telegram-based media ecosystem focused on AI, technology, and trends.
+This project is a marketing website for **Hi, AI!**, a large Telegram-based media ecosystem focused on AI, technology, and trends.
 
-Hi AI operates Telegram AI bots and media channels with a combined audience of 35M+ people.
+Hi, AI! operates Telegram AI bots and media channels with a combined audience of 35M+ people.
 
 The website serves as:
 
 - A public company profile
 - A credibility and scale showcase
 - A gateway for advertisers and partners
-- A representation of Hi AI as a frontier-tech media company
+- A representation of Hi, AI! as a frontier-tech media company
 
 This is not a SaaS product or dashboard — it is a high-performance media/company website.
 
