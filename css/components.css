@@ -516,25 +516,25 @@
 
 /* ── Bot cards — subtle warm tint ─────────────────────── */
 .pcard--bot {
-  border-color: rgba(245, 158, 11, .08);
+  border-color: rgba(245, 158, 11, .15);
 }
 .pcard--bot:hover {
   border-color: rgba(245, 158, 11, .18);
-  box-shadow: 0 20px 48px rgba(245, 158, 11, .06);
+  box-shadow: 0 20px 48px rgba(245, 158, 11, .15);
 }
 .pcard--bot .pcard__role { color: var(--amber-deep) }
 
 /* ── Channel cards — subtle cool tint ─────────────────── */
 .pcard--ch {
-  border-color: rgba(99, 102, 241, .08);
+  border-color: rgba(99, 102, 241, .15);
 }
 .pcard--ch:hover {
   border-color: rgba(99, 102, 241, .18);
-  box-shadow: 0 20px 48px rgba(99, 102, 241, .06);
+  box-shadow: 0 20px 48px rgba(99, 102, 241, .2);
 }
 .pcard--ch .pcard__role { color: #6366f1 }
-.pcard--ch .pcard__metrics { border-top-color: rgba(99, 102, 241, .06) }
-.pcard--ch .pcard__metric { border-right-color: rgba(99, 102, 241, .06) }
+.pcard--ch .pcard__metrics { border-top-color: rgba(99, 102, 241, .15) }
+.pcard--ch .pcard__metric { border-right-color: rgba(99, 102, 241, .15) }
 
 .pcard__body {
   padding: 24px 24px 20px;
