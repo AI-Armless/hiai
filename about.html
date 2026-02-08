@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hi, AI — О нас</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafaf8;--bg-card:#fff;--bg-dark:#0c0c0f;
+  --grad-dark:linear-gradient(145deg,#0c0c0f 0%,#141428 40%,#0f172a 100%);
+  --border:rgba(0,0,0,.07);--border-hover:rgba(0,0,0,.14);
+  --text:#111;--text-2:#555;--text-3:#999;
+  --amber:#f59e0b;--amber-deep:#d97706;--amber-glow:rgba(245,158,11,.1);--amber-soft:#fef3c7;
+  --violet:#8b5cf6;--teal:#14b8a6;--coral:#f43f5e;
+  --blue:#3b82f6;--blue-soft:#dbeafe;
+  --maxw:1200px;--px:clamp(20px,4vw,48px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:'Onest',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--amber);color:#fff}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");background-size:200px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--px)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Unbounded',cursive;line-height:1.1;letter-spacing:-.04em}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-family:'Onest',sans-serif;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap}
+.btn--white{background:#fff;color:var(--bg-dark)}
+.btn--white:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,255,255,.2)}
+.btn--white svg{width:16px;height:16px;transition:transform .3s}
+.btn--white:hover svg{transform:translateX(4px)}
+.btn--amber{background:var(--amber);color:#fff}
+.btn--amber:hover{background:var(--amber-deep);box-shadow:0 12px 40px rgba(245,158,11,.3);transform:translateY(-2px)}
+.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+.btn--ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+/* ═══ NAV ═══ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .35s ease}
+.topbar--transparent{background:transparent}
+.topbar--solid{background:rgba(250,250,248,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.topbar__inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+@media(min-width:768px){.topbar__inner{height:72px}}
+.logo{font-family:'Unbounded',cursive;font-weight:800;font-size:20px;display:flex;align-items:center;gap:6px}
+.logo__dot{width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px rgba(245,158,11,.4)}
+.topbar__links{display:none;gap:28px;font-size:14px;font-weight:500;color:rgba(255,255,255,.5)}
+@media(min-width:840px){.topbar__links{display:flex}}
+.topbar__links a{transition:color .25s}
+.topbar__links a:hover,.topbar__links a.active{color:#fff}
+.topbar--solid .topbar__links{color:var(--text-3)}
+.topbar--solid .topbar__links a:hover,.topbar--solid .topbar__links a.active{color:var(--text)}
+.topbar--solid .logo{color:var(--text)}
+.topbar--transparent .logo{color:#fff}
+.topbar__cta{font-size:13px;font-weight:600;padding:10px 22px;border-radius:999px;background:var(--amber);color:#fff;border:none;cursor:pointer;transition:all .3s}
+.topbar__cta:hover{background:var(--amber-deep);transform:translateY(-1px)}
+.burger{display:flex;align-items:center;background:none;border:none;cursor:pointer;padding:8px;color:#fff}
+@media(min-width:840px){.burger{display:none}}
+.burger svg{width:24px;height:24px}
+.topbar--solid .burger{color:var(--text)}
+.mob{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.mob.open{opacity:1;pointer-events:auto}
+.mob a{font-family:'Unbounded',cursive;font-size:24px;font-weight:600;color:var(--text)}
+.mob__close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:32px;cursor:pointer;color:var(--text);line-height:1}
+
+/* ═══ HERO ═══ */
+.hero{background:var(--grad-dark);color:#fff;padding:160px 0 110px;position:relative;overflow:hidden}
+@media(min-width:768px){.hero{padding:180px 0 130px}}
+.neural-canvas{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero__orb{position:absolute;border-radius:50%;filter:blur(130px);pointer-events:none;opacity:.25;z-index:1}
+.hero__orb--1{width:600px;height:600px;background:#8b5cf6;top:-250px;left:-100px;animation:drift 14s ease-in-out infinite}
+.hero__orb--2{width:450px;height:450px;background:#3b82f6;bottom:-200px;right:-80px;animation:drift 17s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,25px)}}
+.hero__inner{position:relative;z-index:2;text-align:center;max-width:860px;margin:0 auto}
+.hero__badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;font-size:13px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:32px}
+.hero__badge-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(36px,7vw,80px);font-weight:800;letter-spacing:-.05em;margin-bottom:28px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--amber),#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero__sub{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.4);max-width:520px;margin:0 auto 44px;line-height:1.7}
+.hero__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ═══ MARQUEE ═══ */
+.marquee{border-bottom:1px solid var(--border);padding:18px 0;overflow:hidden;background:var(--bg-card)}
+.marquee__track{display:flex;gap:40px;animation:mscroll 30s linear infinite;width:max-content}
+@keyframes mscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee__item{font-size:13px;font-weight:600;color:var(--text-3);white-space:nowrap;text-transform:uppercase;letter-spacing:.08em}
+
+/* ═══ ABOUT ═══ */
+.about{padding:100px 0 80px;background:var(--bg-card)}
+@media(min-width:768px){.about{padding:140px 0 100px}}
+.about__grid{display:grid;gap:40px}
+@media(min-width:900px){.about__grid{grid-template-columns:1fr 1fr;gap:80px;align-items:start}}
+.about__tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber-deep);margin-bottom:16px;display:block}
+.about__left h2{font-size:clamp(26px,3.8vw,44px);font-weight:800}
+.about__right{font-size:16px;color:var(--text-2);line-height:1.8}
+.about__right p+p{margin-top:20px}
+.about__right strong{color:var(--text);font-weight:600}
+
+/* ═══ ECOSYSTEM — dark + light ═══ */
+.eco{padding:0 0 100px;background:var(--bg-card)}
+@media(min-width:768px){.eco{padding:0 0 140px}}
+.eco__grid{display:grid;gap:16px}
+@media(min-width:768px){.eco__grid{grid-template-columns:1fr 1fr;gap:16px}}
+.eco__card{position:relative;border-radius:24px;padding:36px 28px;overflow:hidden;display:flex;flex-direction:column;min-height:340px;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.eco__card:hover{transform:translateY(-4px)}
+@media(min-width:768px){.eco__card{padding:44px 36px;min-height:400px}}
+
+/* Dark card */
+.eco__card--dark{background:var(--grad-dark);color:#fff}
+.eco__card--dark::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.12),transparent 70%);pointer-events:none}
+.eco__card--dark:hover{box-shadow:0 24px 64px rgba(20,20,60,.15)}
+
+/* Light card */
+.eco__card--light{background:#f8f9fb;color:var(--text);border:1px solid rgba(0,0,0,.06)}
+.eco__card--light::before{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);pointer-events:none}
+.eco__card--light:hover{box-shadow:0 24px 64px rgba(0,0,0,.06)}
+
+.eco__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.eco__card--dark .eco__label{color:rgba(255,255,255,.35)}
+.eco__card--light .eco__label{color:var(--text-3)}
+.eco__label::before{content:'';width:16px;height:1.5px;background:currentColor;opacity:.5}
+.eco__card h3{font-size:clamp(20px,2.8vw,26px);font-weight:700;line-height:1.2;margin-bottom:12px;position:relative}
+.eco__card>p{font-size:14px;line-height:1.7;max-width:340px;margin-bottom:auto;position:relative}
+.eco__card--dark>p{color:rgba(255,255,255,.4)}
+.eco__card--light>p{color:var(--text-2)}
+
+.eco__nums{display:flex;gap:32px;margin-top:auto;padding-top:24px;flex-wrap:wrap;position:relative}
+.eco__card--dark .eco__nums{border-top:1px solid rgba(255,255,255,.06)}
+.eco__card--light .eco__nums{border-top:1px solid var(--border)}
+.eco__num-val{font-family:'Unbounded',cursive;font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1}
+.eco__card--dark .eco__num-val{color:#c4b5fd}
+.eco__card--light .eco__num-val{color:var(--blue)}
+.eco__num-lbl{font-size:11px;margin-top:5px;font-weight:500}
+.eco__card--dark .eco__num-lbl{color:rgba(255,255,255,.3)}
+.eco__card--light .eco__num-lbl{color:var(--text-3)}
+
+/* ═══ PRODUCTS ═══ */
+.products{padding:100px 0;background:var(--bg)}
+@media(min-width:768px){.products{padding:140px 0}}
+.products__header{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:56px}
+.products__kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber-deep);margin-bottom:16px}
+.products__title{font-size:clamp(28px,4vw,48px);font-weight:800;margin-bottom:14px}
+.products__sub{font-size:16px;color:var(--text-3);max-width:480px}
+
+/* Stats — bold numbers with subtle accents */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:48px}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px 16px;text-align:center;position:relative;overflow:hidden;transition:all .3s var(--ease)}
+.stat:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.05);border-color:var(--border-hover)}
+.stat__accent{position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--violet),var(--blue));opacity:.7}
+.stat__num{font-family:'Unbounded',cursive;font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:6px;color:var(--text)}
+.stat__label{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
+
+/* Tabs */
+.products__tabs{display:flex;justify-content:center;gap:6px;margin-bottom:40px}
+.ptab{padding:10px 22px;border-radius:999px;border:1px solid var(--border);background:transparent;font-size:13px;font-weight:600;color:var(--text-3);cursor:pointer;transition:all .2s;font-family:'Onest',sans-serif}
+.ptab:hover{border-color:var(--text-3);color:var(--text)}
+.ptab.active{background:var(--bg-dark);color:#fff;border-color:var(--bg-dark)}
+
+.products__grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.products__grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.products__grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ═══ PRODUCT CARDS — polished ═══ */
+.pcard{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:18px;
+  padding:0;display:flex;flex-direction:column;overflow:hidden;
+  transition:all .35s var(--ease);position:relative;
+}
+.pcard:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.06)}
+
+/* Top accent bar */
+.pcard__bar{height:3px;width:100%}
+.pcard--bot .pcard__bar{background:linear-gradient(90deg,var(--amber),#fb923c)}
+.pcard--ch .pcard__bar{background:linear-gradient(90deg,var(--blue),var(--violet))}
+
+.pcard__body{padding:24px 24px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.pcard__head{display:flex;align-items:center;gap:12px}
+.pcard__icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Unbounded',cursive;font-weight:800;font-size:12px;
+}
+.pcard__icon svg{width:20px;height:20px}
+.pcard__icon--bot{background:var(--amber-glow);color:var(--amber-deep)}
+.pcard__icon--ch{background:rgba(59,130,246,.07);color:var(--blue)}
+.pcard__title{font-family:'Unbounded',cursive;font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.pcard__role{font-size:11px;color:var(--text-3);margin-top:2px;font-weight:500}
+.pcard__desc{font-size:13.5px;color:var(--text-2);line-height:1.65;flex-grow:1}
+
+/* Metrics row */
+.pcard__metrics{
+  display:flex;gap:0;margin:0 -24px;padding:0 24px;
+  border-top:1px solid var(--border);
+}
+.pcard__metric{
+  flex:1;padding:14px 8px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.pcard__metric:last-child{border-right:none;flex:0 0 auto;padding:14px 16px}
+.pcard__metric-val{font-family:'Unbounded',cursive;font-size:14px;font-weight:800;color:var(--text);letter-spacing:-.02em}
+.pcard--bot .pcard__metric-val{color:var(--amber-deep)}
+.pcard--ch .pcard__metric-val{color:var(--blue)}
+.pcard__metric-lbl{font-size:10px;color:var(--text-3);margin-top:2px;text-transform:uppercase;letter-spacing:.04em;font-weight:500}
+
+/* Action link in metrics */
+.pcard__go{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:600;color:var(--text-3);transition:color .2s;
+}
+.pcard__go:hover{color:var(--text)}
+.pcard__go svg{width:14px;height:14px}
+
+/* ═══ CTA ═══ */
+.cta-section{padding:clamp(60px,10vw,120px) 0}
+.cta-block{position:relative;padding:clamp(48px,7vw,88px);border-radius:28px;text-align:center;overflow:hidden;background:var(--grad-dark);color:#fff}
+.cta-block .neural-canvas{position:absolute;inset:0;z-index:0}
+.cta-block>*{position:relative;z-index:2}
+.cta-block h2{font-size:clamp(26px,4vw,50px);font-weight:800;margin-bottom:16px;letter-spacing:-.04em}
+.cta-block p{color:rgba(255,255,255,.4);max-width:460px;margin:0 auto 36px;font-size:clamp(15px,1.2vw,17px);line-height:1.75}
+.cta__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ═══ FOOTER ═══ */
+.footer{border-top:1px solid var(--border);padding:32px 0}
+.footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer__brand{font-family:'Unbounded',cursive;font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px}
+.footer__brand .dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.footer__links{display:flex;gap:24px}
+.footer__links a{font-size:13px;color:var(--text-3);transition:color .2s}
+.footer__links a:hover{color:var(--text)}
+.footer__copy{font-size:12px;color:var(--text-3)}
+
+/* ═══ UTILS ═══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+
+@media(max-width:768px){
+  .topbar__links,.topbar__cta{display:none !important}
+  .eco__grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero__btns,.cta__btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar topbar--transparent" id="topbar">
+  <div class="wrap topbar__inner">
+    <a href="about.html" class="logo"><span class="logo__dot"></span>Hi, AI</a>
+    <div class="topbar__links">
+      <a href="about.html" class="active">О нас</a>
+      <a href="advertise.html">Рекламодателям</a>
+      <a href="contact.html">Контакты</a>
+    </div>
+    <a href="contact.html" class="topbar__cta">Связаться</a>
+    <button class="burger" onclick="document.getElementById('mob').classList.add('open')" aria-label="Меню">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob__close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="about.html" onclick="this.parentElement.classList.remove('open')">О нас</a>
+  <a href="advertise.html" onclick="this.parentElement.classList.remove('open')">Рекламодателям</a>
+  <a href="contact.html" onclick="this.parentElement.classList.remove('open')">Контакты</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="neural-canvas" id="neuralHero"></canvas>
+  <div class="hero__orb hero__orb--1"></div>
+  <div class="hero__orb hero__orb--2"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <div class="hero__badge reveal"><span class="hero__badge-dot"></span>Крупнейшая AI-экосистема в&nbsp;Telegram</div>
+      <h1 class="reveal d1">Мы делаем AI<br/>доступным для<br/><em>35 миллионов</em></h1>
+      <p class="hero__sub reveal d2">5&nbsp;AI&#8209;ботов и&nbsp;10+&nbsp;медиа&#8209;каналов о&nbsp;технологиях.<br>Каждый день миллионы людей используют нашу экосистему.</p>
+      <div class="hero__btns reveal d3">
+        <a href="advertise.html" class="btn btn--white">Рекламодателям <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a href="contact.html" class="btn btn--ghost">Связаться с нами</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span class="marquee__item">Сбер</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Яндекс</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Skillbox</span><span class="marquee__item">•</span>
+    <span class="marquee__item">ВТБ</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Точка</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Дом.ру</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Perplexity</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Tutu.ru</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Сбер.Бизнес</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Яндекс.Браузер</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Сбер</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Яндекс</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Skillbox</span><span class="marquee__item">•</span>
+    <span class="marquee__item">ВТБ</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Точка</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Дом.ру</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Perplexity</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Tutu.ru</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Сбер.Бизнес</span><span class="marquee__item">•</span>
+    <span class="marquee__item">Яндекс.Браузер</span><span class="marquee__item">•</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap">
+    <div class="about__grid">
+      <div class="about__left reveal">
+        <span class="about__tag">О компании</span>
+        <h2>Мы создали крупнейшие AI&#8209;агрегаторы и&nbsp;медиа о&nbsp;технологиях в&nbsp;Telegram</h2>
+      </div>
+      <div class="about__right reveal d2">
+        <p>За&nbsp;три года мы&nbsp;построили экосистему, которой ежедневно пользуется <strong>миллион человек</strong>. Наши боты отвечают на&nbsp;3&nbsp;миллиона вопросов и&nbsp;генерируют миллион изображений каждый день.</p>
+        <p>Параллельно мы&nbsp;построили одну из&nbsp;крупнейших медиа&#8209;сетей в&nbsp;Telegram — <strong>13&nbsp;миллионов подписчиков</strong> в&nbsp;каналах о&nbsp;технологиях, AI, трендах и&nbsp;маркетинге на&nbsp;трёх языках.</p>
+        <p>Наша аудитория — активные, технологичные пользователи. <strong>Мы&nbsp;соединяем ежедневное использование AI и&nbsp;медиа&#8209;влияние.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM — dark + light -->
+<section class="eco">
+  <div class="wrap">
+    <div class="eco__grid">
+      <div class="eco__card eco__card--dark reveal">
+        <div class="eco__label">AI-боты</div>
+        <h3>5&nbsp;ботов — единый интерфейс для лучших нейросетей</h3>
+        <p>Тексты, изображения, видео, музыка — всё в&nbsp;Telegram. Доступ к&nbsp;AI для миллионов&nbsp;людей.</p>
+        <div class="eco__nums">
+          <div><div class="eco__num-val">3M</div><div class="eco__num-lbl">запросов / сут</div></div>
+          <div><div class="eco__num-val">1M</div><div class="eco__num-lbl">картинок / сут</div></div>
+          <div><div class="eco__num-val">1M</div><div class="eco__num-lbl">DAU</div></div>
+        </div>
+      </div>
+      <div class="eco__card eco__card--light reveal d1">
+        <div class="eco__label">Медиа-сеть</div>
+        <h3>10+&nbsp;каналов — формируем тех&#8209;повестку</h3>
+        <p>Технологии, AI, тренды и&nbsp;маркетинг. Крупнейшая сеть каналов на&nbsp;русском языке.</p>
+        <div class="eco__nums">
+          <div><div class="eco__num-val">13M</div><div class="eco__num-lbl">подписчиков</div></div>
+          <div><div class="eco__num-val">10+</div><div class="eco__num-lbl">каналов</div></div>
+          <div><div class="eco__num-val">3</div><div class="eco__num-lbl">языка</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL PRODUCTS -->
+<section class="products">
+  <div class="wrap">
+    <div class="products__header reveal">
+      <div class="products__kicker">Экосистема</div>
+      <h2 class="products__title">Все наши продукты</h2>
+      <p class="products__sub">AI-боты и медиа-каналы Hi,&nbsp;AI — полный каталог.</p>
+    </div>
+
+    <div class="stats reveal d1" id="statsBar">
+      <div class="stat"><div class="stat__accent"></div><div class="stat__num" data-count="35" data-suffix="M">0</div><div class="stat__label">Аудитория</div></div>
+      <div class="stat"><div class="stat__accent"></div><div class="stat__num" data-count="8" data-suffix="M">0</div><div class="stat__label">MAU</div></div>
+      <div class="stat"><div class="stat__accent"></div><div class="stat__num" data-count="3" data-suffix="M">0</div><div class="stat__label">Запросов / день</div></div>
+      <div class="stat"><div class="stat__accent"></div><div class="stat__num" data-count="13" data-suffix="M">0</div><div class="stat__label">Подписчиков</div></div>
+    </div>
+
+    <div class="products__tabs reveal d2">
+      <button class="ptab active" data-filter="all">Всё</button>
+      <button class="ptab" data-filter="bot">🤖 AI-боты</button>
+      <button class="ptab" data-filter="ch">📡 Каналы</button>
+    </div>
+
+    <div class="products__grid">
+
+      <!-- BOTS -->
+      <div class="pcard pcard--bot reveal" data-type="bot">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><div class="pcard__title">GPT4 Telegram Bot</div><div class="pcard__role">Диалоговый AI</div></div>
+          </div>
+          <div class="pcard__desc">Главный диалоговый бот. Ответы на вопросы, помощь в задачах, проверка фактов. Крупнейший AI-бот в русскоязычном Telegram.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">4.2M</div><div class="pcard__metric-lbl">MAU</div></div>
+          <div class="pcard__metric"><div class="pcard__metric-val">3M</div><div class="pcard__metric-lbl">запросов/день</div></div>
+          <div class="pcard__metric"><a href="https://t.me/gpt4telegrambot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--bot reveal d1" data-type="bot">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+            <div><div class="pcard__title">AI Image Bot</div><div class="pcard__role">Генерация изображений</div></div>
+          </div>
+          <div class="pcard__desc">Midjourney, DALL-E, Stable Diffusion — генерация изображений прямо в Telegram. Популярен среди дизайнеров и SMM.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">2.1M</div><div class="pcard__metric-lbl">MAU</div></div>
+          <div class="pcard__metric"><div class="pcard__metric-val">1M</div><div class="pcard__metric-lbl">картинок/день</div></div>
+          <div class="pcard__metric"><a href="https://t.me/aiimagebot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--bot reveal d2" data-type="bot">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div><div class="pcard__title">AI Text Bot</div><div class="pcard__role">Создание текстов</div></div>
+          </div>
+          <div class="pcard__desc">Тексты, статьи, письма, сценарии и маркетинговые материалы. Инструмент копирайтеров и контент-мейкеров.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">1.4M</div><div class="pcard__metric-lbl">MAU</div></div>
+          <div class="pcard__metric"><div class="pcard__metric-val">800K</div><div class="pcard__metric-lbl">текстов/день</div></div>
+          <div class="pcard__metric"><a href="https://t.me/aitextbot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--bot reveal" data-type="bot">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+            <div><div class="pcard__title">AI Video Bot</div><div class="pcard__role">Генерация видео</div></div>
+          </div>
+          <div class="pcard__desc">Сценарии, раскадровки и генерация видеоконтента. Reels, Shorts и TikTok одной командой.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">680K</div><div class="pcard__metric-lbl">MAU</div></div>
+          <div class="pcard__metric"><div class="pcard__metric-val">120K</div><div class="pcard__metric-lbl">видео/день</div></div>
+          <div class="pcard__metric"><a href="https://t.me/aivideobot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--bot reveal d1" data-type="bot">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+            <div><div class="pcard__title">AI Music Bot</div><div class="pcard__role">Генерация музыки</div></div>
+          </div>
+          <div class="pcard__desc">Треки, саунд-дизайн, создание музыки по описанию. Для продакшена и контент-мейкеров.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">350K</div><div class="pcard__metric-lbl">MAU</div></div>
+          <div class="pcard__metric"><div class="pcard__metric-val">50K</div><div class="pcard__metric-lbl">треков/день</div></div>
+          <div class="pcard__metric"><a href="https://t.me/aimusicbot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+        </div>
+      </div>
+
+      <!-- CHANNELS -->
+      <div class="pcard pcard--ch reveal d2" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--blue);color:#fff">ТЧ</div>
+            <div><div class="pcard__title">Техночат</div><div class="pcard__role">Технологии и AI</div></div>
+          </div>
+          <div class="pcard__desc">Самый большой канал про технологии и AI в русскоязычном Telegram. Ежедневные обзоры и инсайты.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">3M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/techchat" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--ch reveal" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--coral);color:#fff">Hi</div>
+            <div><div class="pcard__title">Hi, AI • Новости</div><div class="pcard__role">AI и нейросети</div></div>
+          </div>
+          <div class="pcard__desc">Главное медиа про AI на русском языке. Новости, обзоры моделей и практические разборы.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">2.2M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/hiai" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--ch reveal d1" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--violet);color:#fff">ТМ</div>
+            <div><div class="pcard__title">Тренды моей ленты</div><div class="pcard__role">Культура и тренды</div></div>
+          </div>
+          <div class="pcard__desc">Завтра это будет в тренде, а сегодня об этом пишем мы. Культура, тренды, маркетинг.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">2.5M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/trends" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--ch reveal d2" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--teal);color:#fff">ЭТ</div>
+            <div><div class="pcard__title">Это тренд</div><div class="pcard__role">Маркетинг и креатив</div></div>
+          </div>
+          <div class="pcard__desc">Быстрые новости о мире маркетинга, креатива и медиа.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">1M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/etotrend" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--ch reveal" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--blue);color:#fff">AI</div>
+            <div><div class="pcard__title">AI и точка</div><div class="pcard__role">AI-новости</div></div>
+          </div>
+          <div class="pcard__desc">Новости AI — коротко и по делу. Быстрый формат для тех, кто ценит время.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">600K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/aiitochka" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+      <div class="pcard pcard--ch reveal d1" data-type="ch">
+        <div class="pcard__bar"></div>
+        <div class="pcard__body">
+          <div class="pcard__head">
+            <div class="pcard__icon pcard__icon--ch" style="background:var(--amber-deep);color:#fff">GP</div>
+            <div><div class="pcard__title">GPT, помоги!</div><div class="pcard__role">Промпты для AI</div></div>
+          </div>
+          <div class="pcard__desc">Полезные промпты для AI на каждый день. Практичный контент для всех уровней.</div>
+        </div>
+        <div class="pcard__metrics">
+          <div class="pcard__metric"><div class="pcard__metric-val">450K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+          <div class="pcard__metric" style="flex:1"></div>
+          <div class="pcard__metric"><a href="https://t.me/gptpomogi" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-block reveal">
+      <canvas class="neural-canvas" id="neuralCta"></canvas>
+      <h2>Ваш бренд +&nbsp;Hi,&nbsp; AI!</h2>
+      <p>Разместите свой бренд перед миллионной аудиторией любителей AI и технологий.</p>
+      <div class="cta__btns">
+        <a href="contact.html" class="btn btn--amber">Связаться с нами →</a>
+        <a href="advertise.html" class="btn btn--ghost">Подробнее →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a href="about.html" class="footer__brand"><span class="dot"></span>Hi, AI</a>
+    <div class="footer__links">
+      <a href="about.html">О нас</a>
+      <a href="advertise.html">Рекламодателям</a>
+      <a href="contact.html">Контакты</a>
+    </div>
+    <div class="footer__copy">© 2025 Hi, AI</div>
+  </div>
+</footer>
+
+<script>
+// Neural Network
+class NeuralNet{
+  constructor(c,o={}){
+    this.c=c;this.x=c.getContext('2d');this.n=[];this.m={x:-1e3,y:-1e3};
+    this.o=Object.assign({count:40,dist:160,r:139,g:92,b:246,size:2.5,spd:.3,mr:180,mouse:false},o);
+    this.resize();this.init();this.run();
+    window.addEventListener('resize',()=>this.resize());
+    if(this.o.mouse){
+      c.parentElement.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();this.m.x=e.clientX-r.left;this.m.y=e.clientY-r.top});
+      c.parentElement.addEventListener('mouseleave',()=>{this.m.x=-1e3;this.m.y=-1e3});
+    }
+  }
+  resize(){const p=this.c.parentElement;this.w=this.c.width=p.offsetWidth;this.h=this.c.height=p.offsetHeight}
+  init(){this.n=[];for(let i=0;i<this.o.count;i++)this.n.push({x:Math.random()*this.w,y:Math.random()*this.h,vx:(Math.random()-.5)*this.o.spd,vy:(Math.random()-.5)*this.o.spd,s:Math.random()*this.o.size+.8})}
+  run(){
+    this.x.clearRect(0,0,this.w,this.h);
+    const{n,x:ctx,o,w,h,m}=this,col=`${o.r},${o.g},${o.b}`;
+    for(const p of n){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;p.x=Math.max(0,Math.min(w,p.x));p.y=Math.max(0,Math.min(h,p.y))}
+    for(let i=0;i<n.length;i++)for(let j=i+1;j<n.length;j++){const dx=n[i].x-n[j].x,dy=n[i].y-n[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<o.dist){ctx.beginPath();ctx.moveTo(n[i].x,n[i].y);ctx.lineTo(n[j].x,n[j].y);ctx.strokeStyle=`rgba(${col},${(1-d/o.dist)*.12})`;ctx.lineWidth=.6;ctx.stroke()}}
+    for(const p of n){const md=Math.sqrt((p.x-m.x)**2+(p.y-m.y)**2),g=md<o.mr?(1-md/o.mr)*.4:0;ctx.beginPath();ctx.arc(p.x,p.y,p.s+g*3,0,Math.PI*2);ctx.fillStyle=`rgba(${col},${.2+g})`;ctx.fill()}
+    requestAnimationFrame(()=>this.run());
+  }
+}
+const hc=document.getElementById('neuralHero');if(hc)new NeuralNet(hc,{count:45,dist:170,spd:.22,mouse:true,mr:200,r:139,g:92,b:246});
+const cc=document.getElementById('neuralCta');if(cc)new NeuralNet(cc,{count:25,dist:140,spd:.18,r:99,g:102,b:241});
+
+// Reveal
+const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('in');obs.unobserve(i.target)}})},{threshold:.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Counters
+(function(){
+  const bar=document.getElementById('statsBar');if(!bar)return;
+  new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){
+    i.target.querySelectorAll('[data-count]').forEach(el=>{
+      const t=+el.dataset.count,s=el.dataset.suffix||'',d=1600;let st=null;
+      (function tick(ts){if(!st)st=ts;const p=Math.min((ts-st)/d,1);el.textContent=Math.round((1-Math.pow(1-p,3.5))*t)+s;if(p<1)requestAnimationFrame(tick)})(performance.now())
+    });obs.unobserve(i.target)}})},{threshold:.3}).observe(bar);
+})();
+
+// Nav
+(function(){
+  const nav=document.getElementById('topbar'),hero=document.querySelector('.hero');if(!nav||!hero)return;
+  new IntersectionObserver(e=>{e.forEach(i=>{nav.className=i.isIntersecting?'topbar topbar--transparent':'topbar topbar--solid'})},{threshold:.05}).observe(hero);
+})();
+
+// Tabs
+(function(){
+  const tabs=document.querySelectorAll('.ptab'),cards=document.querySelectorAll('.pcard');
+  tabs.forEach(t=>{t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');
+    const f=t.dataset.filter;cards.forEach(c=>{c.style.display=(f==='all'||c.dataset.type===f)?'':'none'});
+  })});
+})();
+</script>
+</body>
+</html>
