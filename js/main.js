@@ -72,23 +72,79 @@ document.querySelectorAll('[data-count]').forEach(el => {
 });
 
 
-/* ── Product Tabs ── */
+/* ── Product Tabs (index page — show/hide all) ── */
 
 (function () {
-  const tabs = document.querySelectorAll('.ptab');
-  const cards = document.querySelectorAll('.pcard');
+  var section = document.getElementById('products');
+  if (!section) return;
+  var tabs = section.querySelectorAll('.ptab');
+  var cards = section.querySelectorAll('.pcard');
   if (!tabs.length || !cards.length) return;
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
       tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      cards.forEach(card => {
+      var filter = tab.dataset.filter;
+      cards.forEach(function (card) {
         card.style.display = filter === 'all' || card.dataset.type === filter ? '' : 'none';
       });
     });
   });
+})();
+
+
+/* ── Product Showcase (advertise page — paginated) ── */
+
+(function () {
+  var wrap = document.getElementById('advProducts');
+  if (!wrap) return;
+
+  var PER_PAGE = 6;
+  var allCards = [].slice.call(wrap.querySelectorAll('.pcard'));
+  var tabs = [].slice.call(wrap.querySelectorAll('.ptab'));
+  var info = wrap.querySelector('.aud__pager-info');
+  var btnPrev = wrap.querySelector('[data-dir="prev"]');
+  var btnNext = wrap.querySelector('[data-dir="next"]');
+  var filter = 'all';
+  var page = 0;
+
+  function getVisible() {
+    return allCards.filter(function (c) {
+      return filter === 'all' || c.dataset.type === filter;
+    });
+  }
+
+  function render() {
+    var vis = getVisible();
+    var totalPages = Math.max(1, Math.ceil(vis.length / PER_PAGE));
+    if (page >= totalPages) page = totalPages - 1;
+    if (page < 0) page = 0;
+
+    allCards.forEach(function (c) { c.style.display = 'none'; });
+    vis.slice(page * PER_PAGE, (page + 1) * PER_PAGE).forEach(function (c) {
+      c.style.display = '';
+    });
+
+    info.textContent = (page + 1) + ' / ' + totalPages;
+    btnPrev.disabled = page === 0;
+    btnNext.disabled = page >= totalPages - 1;
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.classList.remove('active'); });
+      t.classList.add('active');
+      filter = t.dataset.filter;
+      page = 0;
+      render();
+    });
+  });
+
+  btnPrev.addEventListener('click', function () { page--; render(); });
+  btnNext.addEventListener('click', function () { page++; render(); });
+
+  render();
 })();
 
 

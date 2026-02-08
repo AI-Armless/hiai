@@ -166,16 +166,19 @@
   </div>
 </section>
 
-<!-- AUDIENCE — asymmetric 2-col with emoji -->
-<section class="audience">
+<!-- AUDIENCE -->
+<section class="audience" id="audience">
   <div class="container">
     <div class="section-head reveal">
       <div class="kicker">Аудитория</div>
       <h2>Наша аудитория</h2>
       <p>Люди, которые ежедневно общаются с нейросетями и в курсе последних технологических трендов.</p>
     </div>
+
+    <!-- Two equal cards -->
     <div class="aud__grid">
       <div class="aud__card reveal">
+        <div class="aud__card-icon">🎯</div>
         <h3>Для чего используют AI</h3>
         <p>Наша аудитория регулярно общается с нейросетями для решения реальных задач — от обучения до бизнеса.</p>
         <div class="aud__tags">
@@ -189,7 +192,7 @@
           <span class="aud__tag">🧠 Психология</span>
         </div>
       </div>
-      <div class="aud__target reveal d1">
+      <div class="aud__card aud__card--target reveal d1">
         <div class="aud__badge">Уникальный таргетинг</div>
         <h3>Знаем интересы по&nbsp;вопросам к&nbsp;AI</h3>
         <p>Показывайте рекламу людям, зная что именно они спрашивают у нейросети — точнее, чем любой соцдем.</p>
@@ -202,6 +205,323 @@
         </div>
       </div>
     </div>
+
+    <!-- Product showcase with pagination -->
+    <div class="aud__showcase reveal d2" id="advProducts">
+      <div class="aud__showcase-head">
+        <h3 class="aud__showcase-title">Наши площадки</h3>
+        <div class="aud__showcase-controls">
+          <div class="products__tabs">
+            <button class="ptab active" data-filter="all">Всё</button>
+            <button class="ptab" data-filter="bot">🤖 Боты</button>
+            <button class="ptab" data-filter="ch">📡 Каналы</button>
+          </div>
+          <div class="aud__pager">
+            <button class="aud__pager-btn" data-dir="prev" aria-label="Назад" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <span class="aud__pager-info">1 / 4</span>
+            <button class="aud__pager-btn" data-dir="next" aria-label="Вперёд">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="products__grid">
+        <!-- BOTS -->
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/gpt4bot.jpg" alt="GPT4 Telegram Bot"/></div>
+              <div><a href="https://t.me/gpt4telegrambot" target="_blank" class="pcard__title">GPT4 Telegram Bot</a><div class="pcard__role">Диалоговый AI</div></div>
+            </div>
+            <div class="pcard__desc">Главный диалоговый бот. Ответы на вопросы, помощь в задачах, проверка фактов.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">4.2M</div><div class="pcard__metric-lbl">MAU</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">3M</div><div class="pcard__metric-lbl">запросов/день</div></div>
+            <div class="pcard__metric"><a href="https://t.me/gpt4telegrambot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/GPT4bot.jpg" alt="GPT 4 Bot"/></div>
+              <div><a href="https://t.me/GPT4Tbot" target="_blank" class="pcard__title">GPT 4 Bot</a><div class="pcard__role">Универсальный AI</div></div>
+            </div>
+            <div class="pcard__desc">Универсальный AI-бот: ChatGPT, Claude, Gemini, DeepSeek, Midjourney и другие нейросети.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">1M</div><div class="pcard__metric-lbl">MAU</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPT4Tbot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/GPT5bot.jpg" alt="ChatGPT 5"/></div>
+              <div><a href="https://t.me/chatcom" target="_blank" class="pcard__title">ChatGPT 5</a><div class="pcard__role">Универсальный AI</div></div>
+            </div>
+            <div class="pcard__desc">Универсальный AI-бот: ChatGPT, Claude, Gemini, DeepSeek, Midjourney и другие нейросети.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">600K</div><div class="pcard__metric-lbl">MAU</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/chatcom" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/gptweb.jpg" alt="GPT Web"/></div>
+              <div><a href="https://t.me/GPT4AgentsBot?utm_source=web" target="_blank" class="pcard__title">GPT Web</a><div class="pcard__role">AI-бот</div></div>
+            </div>
+            <div class="pcard__desc">AI-бот с доступом к Gemini, Nano Banana и другим нейросетям.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">500K</div><div class="pcard__metric-lbl">MAU</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPT4AgentsBot?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/mylook.jpg" alt="MyLook"/></div>
+              <div><a href="https://t.me/mylook" target="_blank" class="pcard__title">MyLook</a><div class="pcard__role">AI-редактор внешности</div></div>
+            </div>
+            <div class="pcard__desc">AI-редактор внешности: причёски, цвет волос, пирсинг, макияж, стили — всё в один клик.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">200K</div><div class="pcard__metric-lbl">MAU</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/mylook" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/megafon.jpg" alt="MegafonBot"/></div>
+              <div><a href="https://t.me/GPT4_MegaFon_bot?utm_source=web" target="_blank" class="pcard__title">MegafonBot</a><div class="pcard__role">Партнёрский AI-бот</div></div>
+            </div>
+            <div class="pcard__desc">Партнёрский бот с нейросетями для компании Мегафон.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">Megafon</div><div class="pcard__metric-lbl">партнёр</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPT4_MegaFon_bot?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--bot" data-type="bot">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/yota.jpg" alt="YotaBot"/></div>
+              <div><a href="https://t.me/GPT4_Yota_bot?utm_source=web" target="_blank" class="pcard__title">YotaBot</a><div class="pcard__role">Партнёрский AI-бот</div></div>
+            </div>
+            <div class="pcard__desc">Бот Yota для доступа к GPT, Claude, Midjourney, Flux и другим AI-инструментам.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">Yota</div><div class="pcard__metric-lbl">партнёр</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">AI</div><div class="pcard__metric-lbl">нейросети</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPT4_Yota_bot?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Открыть</a></div>
+          </div>
+        </div>
+
+        <!-- CHANNELS — Русский -->
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/technochat.jpg" alt="Техночат"/></div>
+              <div><a href="https://t.me/tehnochat?utm_source=web" target="_blank" class="pcard__title">Техночат</a><div class="pcard__role">Технологии и AI</div></div>
+            </div>
+            <div class="pcard__desc">Самый большой канал про технологии и AI в русскоязычном Telegram.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">3M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/tehnochat?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/hiai.jpg" alt="Hi, AI"/></div>
+              <div><a href="https://t.me/hiaimedia?utm_source=web" target="_blank" class="pcard__title">Hi, AI • Новости</a><div class="pcard__role">AI и нейросети</div></div>
+            </div>
+            <div class="pcard__desc">Главное медиа про AI на русском языке. Новости, обзоры моделей и разборы.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">2.2M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/hiaimedia?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/trendsmyfeed.jpeg" alt="Тренды моей ленты"/></div>
+              <div><a href="https://t.me/NiceHubSearchBot" target="_blank" class="pcard__title">Тренды моей ленты</a><div class="pcard__role">Культура и тренды</div></div>
+            </div>
+            <div class="pcard__desc">Завтра это будет в тренде, а сегодня об этом пишем мы.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">2.5M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/NiceHubSearchBot" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/etotrend.jpg" alt="Это тренд"/></div>
+              <div><a href="https://t.me/thetrend" target="_blank" class="pcard__title">Это тренд</a><div class="pcard__role">Маркетинг и креатив</div></div>
+            </div>
+            <div class="pcard__desc">Быстрые новости о мире маркетинга, креатива и медиа.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">1M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/thetrend" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/ai1bot.jpg" alt="ИИ-бот №1"/></div>
+              <div><a href="https://t.me/GPT4TChannel" target="_blank" class="pcard__title">ИИ-бот №1</a><div class="pcard__role">Канал AI-бота</div></div>
+            </div>
+            <div class="pcard__desc">Официальный канал Главного ИИ-бота в Telegram.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">800K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPT4TChannel" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/aiitochka.jpg" alt="AI и точка"/></div>
+              <div><a href="https://t.me/ai4telegram" target="_blank" class="pcard__title">AI и точка</a><div class="pcard__role">AI-новости</div></div>
+            </div>
+            <div class="pcard__desc">Новости AI — коротко и по делу. Быстрый формат для тех, кто ценит время.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">600K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/ai4telegram" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/marketing.jpg" alt="Натуральный маркетинг"/></div>
+              <div><a href="https://t.me/nature_marketing" target="_blank" class="pcard__title">Натуральный маркетинг</a><div class="pcard__role">Маркетинг</div></div>
+            </div>
+            <div class="pcard__desc">Тренды, новости, полезные инсайты из мира маркетинга.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">500K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/nature_marketing" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/gptpomogi.jpg" alt="GPT, помоги!"/></div>
+              <div><a href="https://t.me/GPThelp_ru?utm_source=web" target="_blank" class="pcard__title">GPT, помоги!</a><div class="pcard__role">Промпты для AI</div></div>
+            </div>
+            <div class="pcard__desc">Полезные промпты для AI на каждый день.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">450K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/GPThelp_ru?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/neiro.jpg" alt="НЕЙРОГРАМОТНОСТЬ"/></div>
+              <div><a href="https://t.me/edu4telegram" target="_blank" class="pcard__title">НЕЙРОГРАМОТНОСТЬ</a><div class="pcard__role">AI-образование</div></div>
+            </div>
+            <div class="pcard__desc">Канал для тех, кто хочет научиться применять ИИ в работе и жизни.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">175K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇷🇺</div><div class="pcard__metric-lbl">Русский</div></div>
+            <div class="pcard__metric"><a href="https://t.me/edu4telegram" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <!-- CHANNELS — English -->
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/discover.jpg" alt="Discover"/></div>
+              <div><a href="https://t.me/perplexity?utm_source=web" target="_blank" class="pcard__title">Discover</a><div class="pcard__role">Tech News</div></div>
+            </div>
+            <div class="pcard__desc">Технологии и инновации на переднем крае. Мировые тех-новости.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">1.6M</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇬🇧</div><div class="pcard__metric-lbl">English</div></div>
+            <div class="pcard__metric"><a href="https://t.me/perplexity?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+
+        <div class="pcard pcard--ch" data-type="ch">
+          <div class="pcard__bar"></div>
+          <div class="pcard__body">
+            <div class="pcard__head">
+              <div class="pcard__icon"><img src="img/logos/hiai_eng.jpg" alt="Hi, AI English"/></div>
+              <div><a href="https://t.me/hiaimediaen?utm_source=web" target="_blank" class="pcard__title">Hi, AI • English</a><div class="pcard__role">AI &amp; Neural Networks</div></div>
+            </div>
+            <div class="pcard__desc">AI-новости, обзоры моделей и инструменты — на английском языке.</div>
+          </div>
+          <div class="pcard__metrics">
+            <div class="pcard__metric"><div class="pcard__metric-val">500K</div><div class="pcard__metric-lbl">подписчиков</div></div>
+            <div class="pcard__metric"><div class="pcard__metric-val">🇬🇧</div><div class="pcard__metric-lbl">English</div></div>
+            <div class="pcard__metric"><a href="https://t.me/hiaimediaen?utm_source=web" target="_blank" class="pcard__go"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Канал</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
