@@ -197,6 +197,7 @@
 
 /* ── Form Confirmation State ─────────────────────────── */
 
+.form--sent .contact__form-inner { display: none }
 .form--sent .form__fields { display: none }
 .form--sent .contact__form-header { display: none }
 

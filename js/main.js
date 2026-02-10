@@ -167,22 +167,56 @@ document.querySelectorAll('[data-count]').forEach(el => {
 })();
 
 
-/* ── Contact Form ── */
+/* ── Contact Form (Formspree) ── */
 
 (function () {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
+  const wrapper = document.getElementById('contactForm');
+  const form = document.getElementById('contactFormForm');
+  if (!wrapper || !form) return;
 
-  const submitBtn = form.querySelector('.form__submit');
-  if (!submitBtn) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  submitBtn.addEventListener('click', () => {
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    if (!name || !email || !name.value.trim() || !email.value.trim()) {
-      alert('Пожалуйста, заполните имя и email');
+    var action = form.getAttribute('action') || '';
+    if (action.indexOf('YOUR_FORMSPREE_FORM_ID') !== -1) {
+      alert('Замените YOUR_FORMSPREE_FORM_ID в contact.html на ID формы с formspree.io (в настройках формы добавьте оба email для уведомлений).');
       return;
     }
-    form.classList.add('form--sent');
+
+    var submitBtn = form.querySelector('.form__submit');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправка…';
+    }
+
+    var payload = {
+      name: (document.getElementById('name') && document.getElementById('name').value) || '',
+      email: (document.getElementById('email') && document.getElementById('email').value) || '',
+      company: (document.getElementById('company') && document.getElementById('company').value) || '',
+      telegram: (document.getElementById('telegram') && document.getElementById('telegram').value) || '',
+      budget: (document.getElementById('budget') && document.getElementById('budget').value) || '',
+      message: (document.getElementById('message') && document.getElementById('message').value) || '',
+      _subject: 'Новая заявка с сайта Hi, AI'
+    };
+
+    fetch(action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        if (res.ok) {
+          wrapper.classList.add('form--sent');
+        } else {
+          throw new Error('Ошибка отправки');
+        }
+      })
+      .catch(function () {
+        alert('Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Отправить заявку <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>';
+        }
+      });
   });
 })();

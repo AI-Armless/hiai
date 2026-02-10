@@ -76,56 +76,58 @@
 
       </div>
 
-      <!-- RIGHT: Form -->
+      <!-- RIGHT: Form (Formspree) -->
       <div class="contact__form reveal d1" id="contactForm">
-        <div class="contact__form-header">
-          <h3>Оставьте заявку</h3>
-          <p>Заполните форму — мы свяжемся с вами в ближайшее время</p>
-        </div>
+        <form class="contact__form-inner" id="contactFormForm" action="https://formspree.io/f/xqedadln" method="POST">
+          <div class="contact__form-header">
+            <h3>Оставьте заявку</h3>
+            <p>Заполните форму — мы свяжемся с вами в ближайшее время</p>
+          </div>
 
-        <div class="form__fields">
-          <div class="form__row">
-            <div class="form__group">
-              <label class="form__label" for="name">Имя</label>
-              <input class="form__input" type="text" id="name" placeholder="Ваше имя" required/>
+          <div class="form__fields">
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="name">Имя</label>
+                <input class="form__input" type="text" id="name" name="name" placeholder="Ваше имя" required/>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="company">Компания</label>
+                <input class="form__input" type="text" id="company" name="company" placeholder="Название компании"/>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="email" id="email" name="email" placeholder="you@company.com" required/>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="telegram">Telegram</label>
+                <input class="form__input" type="text" id="telegram" name="telegram" placeholder="@username"/>
+              </div>
             </div>
             <div class="form__group">
-              <label class="form__label" for="company">Компания</label>
-              <input class="form__input" type="text" id="company" placeholder="Название компании"/>
+              <label class="form__label" for="budget">Бюджет</label>
+              <select class="form__input" id="budget" name="budget" style="cursor:pointer">
+                <option value="">Выберите бюджет</option>
+                <option value="50k">До 50 000 ₽</option>
+                <option value="100k">50 000 — 100 000 ₽</option>
+                <option value="300k">100 000 — 300 000 ₽</option>
+                <option value="500k">300 000 — 500 000 ₽</option>
+                <option value="1m">500 000 — 1 000 000 ₽</option>
+                <option value="1m+">Более 1 000 000 ₽</option>
+              </select>
             </div>
-          </div>
-          <div class="form__row">
             <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" id="email" placeholder="you@company.com" required/>
+              <label class="form__label" for="message">Сообщение</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Расскажите о вашей задаче, целях и сроках..."></textarea>
             </div>
-            <div class="form__group">
-              <label class="form__label" for="telegram">Telegram</label>
-              <input class="form__input" type="text" id="telegram" placeholder="@username"/>
-            </div>
+            <button class="btn btn--primary form__submit" type="submit">
+              Отправить заявку
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </button>
+            <div class="form__note">Обычно отвечаем в течение 24 часов</div>
           </div>
-          <div class="form__group">
-            <label class="form__label" for="budget">Бюджет</label>
-            <select class="form__input" id="budget" style="cursor:pointer">
-              <option value="">Выберите бюджет</option>
-              <option value="50k">До 50 000 ₽</option>
-              <option value="100k">50 000 — 100 000 ₽</option>
-              <option value="300k">100 000 — 300 000 ₽</option>
-              <option value="500k">300 000 — 500 000 ₽</option>
-              <option value="1m">500 000 — 1 000 000 ₽</option>
-              <option value="1m+">Более 1 000 000 ₽</option>
-            </select>
-          </div>
-          <div class="form__group">
-            <label class="form__label" for="message">Сообщение</label>
-            <textarea class="form__textarea" id="message" placeholder="Расскажите о вашей задаче, целях и сроках..."></textarea>
-          </div>
-          <button class="btn btn--primary form__submit" type="button">
-            Отправить заявку
-            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </button>
-          <div class="form__note">Обычно отвечаем в течение 24 часов</div>
-        </div>
+        </form>
 
         <div class="form__success">
           <div class="form__success-icon">
